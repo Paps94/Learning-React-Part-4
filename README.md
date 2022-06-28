@@ -38,7 +38,7 @@ and replace your custom Firebase URL on line 32 in Cart.js
     await fetch('YOUR-FIREBASE-LINK/orders.json', {
 ```
 
-and on line 15 in AvailableMeals.js
+and on line 15 in AvailableMeals.js (keep in mind that if you name the Firebase table something else you ened to replace the name after your custom link!)
 
 ```sh
         'YOUR-FIREBASE-LINK/meals.json'
