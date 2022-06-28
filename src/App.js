@@ -1,29 +1,21 @@
-import { useState } from 'react';
+import UserFinder from './components/UserFinder';
+import UsersContext from './components/users-context';
 
-import Header from './components/Layout/Header';
-import Meals from './components/Meals/Meals';
-import Cart from './components/Cart/Cart';
-import CartProvider from './store/CartProvider';
+const DUMMY_USERS = [
+  { id: 'u1', name: 'Max' },
+  { id: 'u2', name: 'Manuel' },
+  { id: 'u3', name: 'Julie' },
+];
 
 function App() {
-  const [cartIsShown, setCartIsShown] = useState(false);
-
-  const showCartHandler = () => {
-    setCartIsShown(true);
-  };
-
-  const hideCartHandler = () => {
-    setCartIsShown(false);
-  };
+  const usersContext = {
+    users: DUMMY_USERS
+  }
 
   return (
-    <CartProvider>
-      {cartIsShown && <Cart onClose={hideCartHandler} />}
-      <Header onShowCart={showCartHandler} />
-      <main>
-        <Meals />
-      </main>
-    </CartProvider>
+    <UsersContext.Provider value={usersContext}>
+      <UserFinder />
+    </UsersContext.Provider>
   );
 }
 
